@@ -1,6 +1,0 @@
-{
-	"usingComponents": {
-		"poster": "../../ccmini-cmpts/lib/wxa-plugin-canvas/poster"
-	},
-	"navigationBarTitleText": "校庆头像"
-}
