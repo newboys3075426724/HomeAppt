@@ -1,0 +1,74 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l load-project"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l load-project"></view>
+
+<block wx:if="{{isLoad}}">
+	<wxs src="../../../../../tpls/wxs/tools.wxs" module="tools" />
+	<view class="bg-box"></view>
+	<view class="main">
+		<cmpt-swiper class="swiper" mode="aspectFill" radius="30" indicatorActiveColor="#bf73ff" height="350" images="{{meet.MEET_OBJ.pic}}" />
+
+
+		<view class="box">
+
+			<view class="name">
+				<view class="left" bindtap="url" data-url="{{meet.MEET_OBJ.cover[0]}}" data-type="img">
+					<image src="{{meet.MEET_OBJ.cover[0]}}" mode="aspectFill" class="loading left"></image>
+				</view>
+				<view class="right">
+					<view class="line1"> 
+						<view class="txt">{{meet.MEET_TITLE}}
+							<text wx:if="{{meet.MEET_OBJ.type==1}}" class="tag bg-yellow radius small light margin-left-s">金牌</text>
+							<text wx:if="{{meet.MEET_OBJ.type==2}}" class="tag bg-grey radius small light margin-left-s">银牌</text>
+						</view>
+						<view class="price"><text style="font-size: 20rpx;">¥</text>{{meet.MEET_OBJ.price}} / <text style="font-size: 20rpx;">每次</text></view> 
+					</view>
+					<view class="star"><text class="icon-favorfill" wx:for="{{tools.number(meet.MEET_OBJ.level)}}" wx:key="k1"></text>  {{meet.MEET_OBJ.level}}.0</view>
+
+				</view>
+			</view>
+			<view class="info">
+				<view class="item">学历：{{meet.MEET_OBJ.edu}} </view>
+				<view class="item">属相：{{meet.MEET_OBJ.shuxiang}} </view>
+				<view class="item">民族：{{meet.MEET_OBJ.mingzu}} </view>
+				<view class="item">年龄：{{meet.MEET_OBJ.birth}} </view>
+				<view class="item">经验：{{meet.MEET_OBJ.jinyan}} 年</view>
+				<view class="item">籍贯：{{meet.MEET_OBJ.jiguan}} </view>
+			</view>
+		</view>
+
+		<view class="box">
+			<view class="title"><text class="icon-safe text-bold margin-right-xs text-project"></text>证书证件</view>
+			<view class="cert">
+				<view class="item" wx:for="{{meet.MEET_OBJ.cert}}" wx:key="k" wx:for-item="itm">
+					<view class="pic">
+						<text wx:if="{{itm=='背调合格'}}" class="icon-search"></text>
+						<text wx:elif="{{itm=='保证金已缴纳'}}" class="icon-moneybag"></text>
+						<text wx:elif="{{itm=='身份证'}}" class="icon-vipcard"></text>
+						<text wx:elif="{{itm=='健康证'}}" class="icon-addressbook"></text>
+						<text wx:elif="{{itm=='体检报告'}}" class="icon-friendfavor"></text>
+						<text wx:elif="{{itm=='执业证书'}}" class="icon-read"></text>
+						<text wx:else class="icon-selection"></text>
+						<text class="icon-roundcheckfill text-olive check"></text>
+					</view>
+					<text class="txt text-cut">{{itm}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="box" style="margin-bottom:60rpx">
+			<view class="title"><text class="icon-emojifill text-bold margin-right-xs text-project"></text>综合评价</view>
+			<view class="content"><text>{{meet.MEET_OBJ.content}}</text></view>
+		</view>
+
+	</view>
+
+
+	<cmpt-detail doTop="{{true}}" mode="left" topBtnShow="{{topBtnShow}}" topBtnBottom="150" tag="" oid="{{id}}" cate="{{meet.MEET_CATE_NAME}}" title="{{meet.MEET_TITLE}}" cover="{{meet.MEET_OBJ.cover[0]}}" qr="{{meet.MEET_QR}}" desc="查看详情" bg="{{skin.PROJECT_COLOR}}">
+
+	</cmpt-detail>
+
+	<view bindtap="url" data-url="../detail/meet_detail?id={{id}}" class="bottom safe-bottom">
+		<view class="inner shadow">马上预约</view>
+	</view>
+
+</block>
