@@ -1,0 +1,188 @@
+@import "../../../style/skin.wxss";
+
+page {
+	background-color: #fff !important;
+}
+
+.bg-box {
+	width: 100vw;
+	height: 150rpx;
+	position: absolute;
+	top: 0;
+	border-radius: 0% 0% 72% 39% / 10% 11% 16% 0%;
+	box-shadow: 0rpx 15rpx 8px -10rpx rgba(191, 115, 255, 0.8);
+	background-color: var(--projectColor);
+}
+
+.swiper {
+	width: 100%;
+	border-radius: 20rpx !important;
+	margin-bottom: 20rpx;
+	overflow: hidden;
+}
+
+.swiper image {
+	border-radius: 20rpx !important;
+	overflow: hidden;
+}
+
+
+/*指示点区域*/
+swiper .wx-swiper-dots {
+	background: rgba(0, 0, 0, .25);
+	border-radius: 50rpx;
+	padding: 20rpx 30rpx
+}
+
+/* 选中指示点的样式 */
+swiper .wx-swiper-dot.wx-swiper-dot-active {
+	width: 30rpx;
+	height: 10rpx;
+	border-radius: 4rpx;
+}
+
+.box {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 30rpx;
+	min-height: 180rpx;
+	border-radius: 10rpx;
+	box-shadow: 0rpx 15rpx 15px 2rpx rgba(191, 115, 255, 0.2);
+	margin-bottom: 50rpx;
+	position: relative;
+}
+
+.box .name {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20rpx;
+}
+
+.box .name .left {
+	width: 80rpx;
+	height: 80rpx;
+	margin-right: 15rpx;
+	border-radius: 20%;
+}
+
+.box .name .right {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.box .name .right .line1 {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.box .name .right .line1 .txt {
+	font-size: 36rpx;
+	font-weight: bold;
+}
+
+.box .name .right .line1 .price {
+	font-size: 28rpx;
+	color: var(--orange);
+}
+
+.box .name .right .star   {
+	width:100%;
+	font-size: 24rpx;
+	color:var(--orange);
+	margin-top: 10rpx;
+	opacity: .8;
+}
+
+.box .info {
+	width: 100%;
+	flex-wrap: wrap;
+	display: flex;
+	color: #666;
+	font-size: 24rpx;
+}
+
+.box .info .item {
+	width: 33.33%;
+	padding: 5rpx 0;
+}
+
+
+.box .title {
+	font-size: 30rpx;
+	font-weight: bold;
+}
+
+.box .content {
+	font-size: 24rpx;
+	color: #666;
+	margin-top: 30rpx;
+	line-height: 1.4;
+}
+
+.box .cert {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20rpx;
+}
+
+.box .cert .item {
+	width: 33%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30rpx 0;
+	flex-direction: column;
+}
+
+.box .cert .item .pic {
+	width: 60rpx;
+	height: 55rpx;
+	border: 2rpx solid #666;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5rpx;
+	position: relative;
+	color: #666;
+}
+
+.box .cert .item .pic .check {
+	position: absolute;
+	right: -10rpx;
+	bottom: -15rpx;
+	font-size: 24rpx;
+	background-color: #fff;
+}
+
+.box .cert .item .txt {
+	width: 100%;
+	font-size: 24rpx;
+	margin-top: 10rpx;
+	text-align: center;
+}
+
+.bottom {
+	position: fixed;
+	bottom: 30rpx;
+	width: 100%;
+	padding: 10rpx 100rpx;
+}
+
+.bottom .inner {
+	width: 100%;
+	background-image: linear-gradient(45deg, #a94bf7, #c792f1);
+	color: #fff;
+	font-weight: bold;
+	font-size: 34rpx;
+	border-radius: 30rpx;
+	text-align: center;
+	padding: 12rpx 0;
+	z-index: 999;
+}

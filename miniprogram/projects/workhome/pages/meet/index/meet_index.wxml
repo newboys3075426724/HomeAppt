@@ -1,0 +1,53 @@
+<view wx:if="{{!isLoad}}" class="margin-top load loading text-l load-project"></view>
+<block wx:else>
+	<wxs src="../../../../../tpls/wxs/tools.wxs" module="tools" />
+	<cmpt-comm-list pulldownType="{{['modal', 'list', 'list', 'list', 'list', 'list']}}" type="meet-list" _params="{{_params}}" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="meet/list" topBottom="120" isTotalMenu="{{true}}" placeholder="搜索" bind:list="bindCommListCmpt">
+
+		<!-- List Begin -->
+		<view class="main">
+			<view class="list">
+				<view class="item" bindtap="url" data-url="../info/meet_info?id={{item._id}}" wx:for="{{dataList.list}}" wx:key="key">
+					<view class="title">
+						<view class="left">
+							<image class="pic loading" mode="aspectFill" src="{{item.MEET_OBJ.cover[0]}}" />
+							<text wx:if="{{item.MEET_OBJ.type==1}}" class="gold tag bg-yellow light radius small">金牌</text>
+							<text wx:if="{{item.MEET_OBJ.type==2}}" class="gold tag bg-grey light radius small">银牌</text>
+						</view>
+
+						<view class="right">
+							<view class="name content-cut-one">
+								<text>{{item.MEET_TITLE}}</text>
+								<text class="price">¥{{item.MEET_OBJ.price}}</text>
+							</view>
+							<view class="date">
+								<text class="icon-favorfill" wx:for="{{tools.number(item.MEET_OBJ.level)}}" wx:key="k1"></text>
+								<!--<text class="margin-left-xxs">{{item.MEET_OBJ.level}}</text>00-->
+							</view>
+						</view>
+					</view>
+					<view class="spec-list text-cut">
+						<text class="spec" wx:if="{{indx<3}}" wx:for="{{tools.split(item.MEET_OBJ.spec,',')}}" wx:key="k" wx:for-item="itm" wx:for-index="indx">{{itm}}</text>
+					</view>
+					<view class="bottom">立即预约</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- List END -->
+
+		<!--load begin-->
+		<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+		<template is="listLoadTpl" data="{{skin:'load-project',dataList}}" />
+		<!--load end-->
+
+	</cmpt-comm-list>
+
+
+
+</block>
+
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'meet_index',returnHome:false}}" />
+</block>
